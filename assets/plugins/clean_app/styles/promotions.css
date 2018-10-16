@@ -1,0 +1,9 @@
+.date-picker-wrapper{ 
+    z-index:99999 !important; 	
+    position: absolute !important;
+}
+
+.date-picker-wrapper .footer {
+
+    height: 0px!important;
+}
