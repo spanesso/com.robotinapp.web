@@ -76,24 +76,24 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn' => '',
-    'hostname' => 'localhost',
-    'username' => 'clean_app_db_adm',
-    'password' => 'CleanApp2017',
-    'database' => 'clean_app_db',
-    'dbdriver' => 'mysqli',
-    'dbprefix' => '',
-    'pconnect' => FALSE,
-    'db_debug' => (ENVIRONMENT !== 'production'),
-    'cache_on' => FALSE,
-    'cachedir' => '',
-    'char_set' => 'utf8',
-    'dbcollat' => 'utf8_general_ci',
-    'swap_pre' => '',
-    'encrypt' => FALSE,
-    'compress' => FALSE,
-    'stricton' => FALSE,
-    'failover' => array(),
-    'save_queries' => TRUE
+  'hostname' => 'localhost',
+  'username' => 'root',
+  'password' => '',
+  'database' => 'robotin_app_db',
+  'dbdriver' => 'mysqli',
+  'dbprefix' => '',
+  'pconnect' => FALSE,
+  'db_debug' => (ENVIRONMENT !== 'production'),
+  'cache_on' => FALSE,
+  'cachedir' => '',
+  'char_set' => 'utf8',
+  'dbcollat' => 'utf8_general_ci',
+  'swap_pre' => '',
+  'encrypt' => FALSE,
+  'compress' => FALSE,
+  'stricton' => FALSE,
+  'failover' => array(),
+  'save_queries' => TRUE
 );
 /*
  * 

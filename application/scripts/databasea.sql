@@ -1,30 +1,26 @@
 CREATE TABLE company (
-    idCompany int NOT NULL AUTOINCREMENT,
+    idCompany int NOT NULL AUTO_INCREMENT,
     name text NOT NULL,
     description text NOT NULL,
     logo text NOT NULL,
       webUrl text NOT NULL,
       whatsapp text NOT NULL,
-       phone text NOT NULL
+       phone text NOT NULL,
     PRIMARY KEY (idCompany) 
 );
 
 
 CREATE TABLE rol (
-    idRol int NOT NULL AUTOINCREMENT,
+    idRol int NOT NULL AUTO_INCREMENT,
     name text NOT NULL,
-    description text NOT NULL
+    description text NOT NULL,
     PRIMARY KEY (idRol) 
 );
 
 
-INSERT INTO `rol` (`idRol`, `name`, `description`) VALUES
-(1, 'Administrador', 'Administrador de la plataforma web.'),
-(2, 'Empleado', 'Usuario que hace parte del personal de trabajo.'),
-(3, 'Cliente', 'Usuario que hace uso de las aplicaciones móviles.');
  
-CREATE TABLE user (
-    idUser int NOT NULL AUTOINCREMENT,
+CREATE TABLE users(
+    idUser int NOT NULL AUTO_INCREMENT,
     idRol int NOT NULL,
     status int(11) NOT NULL DEFAULT '1',
     name text NOT NULL,
@@ -41,43 +37,81 @@ CREATE TABLE user (
     FOREIGN KEY (idRol) REFERENCES rol(idRol)
 );
 
-INSERT INTO `user` (`idUser`, `idRol`, `name`, `email`, `password`) VALUES
-(1, 1 'Admin','admin@robotinapp.com','123') ;
 
 
 CREATE TABLE service_type (
-    idServiceType int NOT NULL AUTOINCREMENT,
+    idServiceType int NOT NULL AUTO_INCREMENT,
     name text NOT NULL,
-    description text NOT NULL
+    description text NOT NULL,
     PRIMARY KEY (idServiceType) 
 );
 
 
 CREATE TABLE plans (
-    idPlan int NOT NULL AUTOINCREMENT,
+    idPlan int NOT NULL AUTO_INCREMENT,
     name text NOT NULL,
-    description text NOT NULL
+    description text NOT NULL,
     PRIMARY KEY (idPlan) 
 );
 
 
 CREATE TABLE service (
-    idService int NOT NULL AUTOINCREMENT,
+    idService int NOT NULL AUTO_INCREMENT,
     idServiceType int NOT NULL,
     idPlan int NOT NULL,
     name text NOT NULL,
-    description text NOT NULL
-    price text NOT NULL
+    description text NOT NULL,
+    price text NOT NULL,
     PRIMARY KEY (idService),
     FOREIGN KEY (idServiceType) REFERENCES service_type(idServiceType),
     FOREIGN KEY (idPlan) REFERENCES plans(idPlan)
 );
 
 CREATE TABLE service_status (
-    idServiceStatus int NOT NULL AUTOINCREMENT,
+    idServiceStatus int NOT NULL AUTO_INCREMENT,
     name text NOT NULL, 
-    description text NOT NULL
+    description text NOT NULL,
     PRIMARY KEY (idServiceStatus) 
+);
+
+
+
+CREATE TABLE city (
+    idCity int NOT NULL AUTO_INCREMENT,
+    name text NOT NULL, 
+    description text NOT NULL,
+    PRIMARY KEY (idCity) 
+);
+ 
+CREATE TABLE user_services(
+    idUserService int NOT NULL AUTO_INCREMENT,
+    idService int NOT NULL,
+    idUser int NOT NULL,
+    idServiceStatus int NOT NULL,
+    idCity int NOT NULL,
+    created_date text NOT NULL,
+    finish_date text NOT NULL,
+    payment_date text NOT NULL,
+    place_address text NOT NULL,
+    place_title text NOT NULL,
+    place_description text NOT NULL,
+    PRIMARY KEY (idUserService),
+    FOREIGN KEY (idService) REFERENCES service(idService),
+    FOREIGN KEY (idUser) REFERENCES users(idUser),
+    FOREIGN KEY (idServiceStatus) REFERENCES service_status(idServiceStatus),
+    FOREIGN KEY (idCity) REFERENCES city(idCity)
+);
+ 
+CREATE TABLE asigned_services(
+    idAsignedService int NOT NULL AUTO_INCREMENT,
+    idServiceStatus int NOT NULL,
+    idUserService int NOT NULL,
+    idUser int NOT NULL,
+    asigned_date text NOT NULL,
+    PRIMARY KEY (idAsignedService),
+    FOREIGN KEY (idUserService) REFERENCES user_services(idUserService),
+    FOREIGN KEY (idServiceStatus) REFERENCES service_status(idServiceStatus),
+    FOREIGN KEY (idUser) REFERENCES users(idUser)
 );
 
 INSERT INTO `service_status` (`idServiceStatus`, `name`, `description`) VALUES
@@ -88,45 +122,17 @@ INSERT INTO `service_status` (`idServiceStatus`, `name`, `description`) VALUES
 (5, 'Servicio Finalizado', 'El servicio ha finalizado según el plan escogido'),
 (6, 'Servicio Cancelado', 'El servicio fun cancelado por el usaurio o el administrador.');
 
-CREATE TABLE city (
-    idCity int NOT NULL AUTOINCREMENT,
-    name text NOT NULL, 
-    description text NOT NULL
-    PRIMARY KEY (idCity) 
-);
- 
-CREATE TABLE user_services(
-    idUserService int NOT NULL AUTOINCREMENT,
-    idService int NOT NULL,
-    idUser int NOT NULL,
-    idServiceStatus int NOT NULL,
-    idCity int NOT NULL,
-    created_date text NOT NULL,
-    finish_date text NOT NULL,
-    payment_date text NOT NULL,
-    place_address text NOT NULL,
-    place_title text NOT NULL,
-    place_description text NOT NULL
-    PRIMARY KEY (idUserService),
-    FOREIGN KEY (idService) REFERENCES service(idService),
-    FOREIGN KEY (idUser) REFERENCES user(idUser),
-    FOREIGN KEY (idServiceStatus) REFERENCES service_status(idServiceStatus),
-    FOREIGN KEY (idCity) REFERENCES city(idCity)
-);
- 
-CREATE TABLE asigned_services(
-    idAsignedService int NOT NULL AUTOINCREMENT,
-    idServiceStatus int NOT NULL,
-    idUserService int NOT NULL,
-    idUser int NOT NULL,
-    asigned_date text NOT NULL,
-    PRIMARY KEY (idAsignedService),
-    FOREIGN KEY (idUserService) REFERENCES user_services(idUserService),
-    FOREIGN KEY (idServiceStatus) REFERENCES service_status(idServiceStatus),
-    FOREIGN KEY (idUser) REFERENCES user(idUser)
-);
+INSERT INTO `rol` (`idRol`, `name`, `description`) VALUES
+(1, 'Administrador', 'Administrador de la plataforma web.'),
+(2, 'Empleado', 'Usuario que hace parte del personal de trabajo.'),
+(3, 'Cliente', 'Usuario que hace uso de las aplicaciones móviles.');
 
 
+ 
+ 
+
+INSERT INTO `users` (`idUser`, `idRol`, `status`, `name`, `last_name`, `email`, `photo`, `password`, `phone`, `other_phone`, `birthdate`, `folder`, `code`) VALUES
+(1, 1, 1, 'Administrador', 'Administrador', 'admin@robotinapp.com', ' ', '123', '123456789', '123456789', '19/07/1989', ' ', 'ABC123');
 
 
 
