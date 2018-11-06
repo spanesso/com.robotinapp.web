@@ -2,14 +2,14 @@ URL_CONNECTIONS = {
     //***************************************************
     //*****************   PRODUCCION   ******************
     //***************************************************
-  core: 'http://afiloyalty.com/clean_app/'
+ // core: 'http://afiloyalty.com/clean_app/'
 
 
     //***************************************************
     //*****************   DESARROLLO   ******************
     //*************************************************** 
 
-     //  core: 'http://localhost/CLEAN_APP/Desarrollo/Web/repository/com.clean.app.web/'
+    core: 'http://localhost/RobotinApp/web/com.robotinapp.web/'
 
 
 };

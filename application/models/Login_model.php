@@ -26,13 +26,14 @@ class Login_model extends CI_Model {
     }
 
     public function authorize_user_entry($email, $pass) {
+       
         $query = " SELECT *  "
-                . " FROM user_admin u , rol r "
+                . " FROM users u , rol r "
                 . " WHERE u.email =  '" . $email . "'"
                 . " AND u.password = '" . $pass . "'" 
-                . " AND u.id_rol = r.id_rol "
+                . " AND u.idRol = r.idRol "
                 . " AND u.status = 1 "
-                . " AND u.id_rol = 1 ";
+                . " AND u.idRol = 1 ";
       
 
         $user_validate = $this->db->simple_query($query);

@@ -122,25 +122,25 @@ define('AFI_NAME', 'AFI');
   | VARIABLES
   |--------------------------------------------------------------------------
   |http://localhost/CLEAN_APP/Desarrollo/Web/com.clean.app.web/
-
+  */
 define('API_GCM_KEY', 'AIzaSyA-1_k3-SQmTHP4oiH3T86wt4t2iUsIG4o');
 //define('LOCALHOST', 'http://localhost:8012/');
 define('LOCALHOST', 'http://localhost/');
-define('URL_SERVER', LOCALHOST . 'CLEAN_APP/Desarrollo/Web/repository/');
-define('DIR_SERVER', 'C:/xampp/htdocs/CLEAN_APP/Desarrollo/Web/repository/');
-define('PROYECT_ROOT', URL_SERVER . 'com.clean.app.web/');
+define('URL_SERVER', LOCALHOST . 'RobotinApp/web/');
+define('DIR_SERVER', 'C:/xampp/htdocs/RobotinApp/web/');
+define('PROYECT_ROOT', URL_SERVER . 'com.robotinapp.web/');
 define('EMAIL_USER', 'info@cleannapp.com');
 define('EMAIL_USER_NAME', 'Admin Clean-app');
 define('USERS_FOLDERS', DIR_SERVER . 'users/');
 define('USERS_FOLDERS_WEB', URL_SERVER . 'users/');
-  */
+
 
   /*
   |--------------------------------------------------------------------------
   | VARIABLES PRODUCCION
   |--------------------------------------------------------------------------
   |
- */
+
   define('LOCALHOST', $_SERVER['DOCUMENT_ROOT'] . '/');
   define('URL_SERVER', 'http://afiloyalty.com/');
   define('DIR_SERVER', LOCALHOST);
@@ -149,7 +149,7 @@ define('USERS_FOLDERS_WEB', URL_SERVER . 'users/');
   define('EMAIL_USER_NAME', 'Admin Clean-app');
   define('USERS_FOLDERS', DIR_SERVER . 'users/');
   define('USERS_FOLDERS_WEB', URL_SERVER . 'users/');
-
+ */
 
 
 

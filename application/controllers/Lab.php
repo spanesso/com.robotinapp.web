@@ -160,6 +160,11 @@ class Lab extends MY_Controller {
         echo "--->" . $this->mail_manager->lab();
     }
 
+
+
+    public function printtt() {
+        echo "--->"  ;
+    }
     public function accentsss() {
         $string = "programa's";
 
