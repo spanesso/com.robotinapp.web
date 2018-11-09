@@ -16,8 +16,8 @@ class Session_manager {
 
 
         $data_ses = array(
-            'id_admin' => $user->id_admin,
-            'id_rol' => $user->id_rol,
+            'id_admin' => $user->idUser,
+            'id_rol' => $user->idRol,
             'name' => $user->name,
             'last_name' => $user->last_name,
             'email' => $user->email,
